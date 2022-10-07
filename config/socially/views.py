@@ -1,5 +1,5 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 def index(request):
@@ -30,3 +30,8 @@ def user_socials(request, this_user):
     all_socials = Socially.objects.filter(author=this_user)
     context['all_ socials']= all_socials
     return render(request, 'socially/index.html', context)
+
+def delete(request, id):
+    social = Socially.objects.get(id = id)
+    social.delete()
+    return redirect('/socially/index/')

@@ -64,13 +64,14 @@
         <button id="home" type="submit">Post Social</button>
     </form>
 
-    {% for social in all_socials %}
+    {% for social in all_socials reversed%}
     <h4>
         {{social.author}}
     </h4>
 
     {{social.social_text}}
     {{social.date_created}}
+    <a href="{% url 'socially:delete' social.id %}">Delete</a>
     {% endfor %}
 
     <!-- footer -->
