@@ -2,11 +2,16 @@
 
   
 
+  
+
 Socially is a Social Media app that allows you to connect and interact with other users. By using Django, Javascript, Python, And Vue I'm able to create a fuctional app that will allow users to be able to connect and interact with each other. You will be able to find other users like yourself, post a social so you share your thoughts, and or share you friends thoughts as well. This social media app will allow for user authentication to be used and allows you to be able to have your own personalized profile!
 
   
 
+  
+
 # Features
+
 
 #### Base features:
 
@@ -52,7 +57,11 @@ Socially is a Social Media app that allows you to connect and interact with othe
 
   
 
+  
+
 #### Week 1:
+
+  
 
   
 
@@ -78,6 +87,8 @@ MVP
 
   
 
+  
+
 Extra
 
   
@@ -95,6 +106,8 @@ Extra
   
 
 #### Week 3:
+
+  
 
   
 
