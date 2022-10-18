@@ -35,3 +35,8 @@ def delete(request, id):
     social = Socially.objects.get(id = id)
     social.delete()
     return redirect('/socially/index/')
+
+def likes(request, id):
+    social = Action.objects.get(id = id)
+    print(social)
+

@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Socially</title>
-
+<script src="{% static 'javascript/app.js' %}"></script>
 </head>
 <body>
     <!-- navbar not completed -->
@@ -27,24 +27,10 @@
                     </li>
                 </ul>
             </div>   
-            <!-- <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://localhost:8000/user_signup/signup">Sign Up!</a>
-                    </li>
-                </ul>
-            </div>    -->
-            <!-- <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://localhost:8000/user_signup/login">Login</a>
-                    </li>
-                </ul>
-            </div>    -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://localhost:8000">Logout</a>
+                        <a class="nav-link active" aria-current="page" href="{%url 'logout'%}">Logout</a>
                     </li>
                 </ul>
             </div>   
@@ -65,16 +51,20 @@
     </form>
 
     {% for social in all_socials reversed%}
-    <h4>
-        {{social.author}}
-    </h4>
-
-    {{social.social_text}}
-    {{social.date_created}}
-    <a href="{% url 'socially:delete' social.id %}">Delete</a>
+    <br>
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/image_test.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{ social.author}}</h5>
+        <p class="card-text">{{ social.social_text}}</p>
+        <p class="card-text"><small class="text-muted">{{social.date_created}}</small></p>
+        <a href="{% url 'socially:delete' social.id %}">Delete</a>
+        <a href="{% url 'socially:likes' social.id %}">Like</a>
+        </div>
+    </div>
     {% endfor %}
-
-    <!-- footer -->
-
+    
+    <!-- footer --> 
 </body>
 </html>
+
