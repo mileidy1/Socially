@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.http import HttpResponseRedirect
 
-def index(request, args):
+def index(request):
     context = {}
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -41,6 +41,8 @@ def delete(request, id):
     return redirect('/socially/index/')
 
 def likes(request, pk):
-    post = get_object_or_404(Socially, id=request.POST.get('like'))
+    print(pk)
+    post = get_object_or_404(Socially, id=pk)
+    print(post)
     post.like.add(request.user)
-    return HttpResponseRedirect(reverse('socially:index', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('socially:index'))

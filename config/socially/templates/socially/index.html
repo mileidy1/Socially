@@ -62,7 +62,7 @@
         <a href="{% url 'socially:delete' social.id %}">Delete</a>
         <form action="{% url 'socially:likes' social.pk %}" method="POST">
             {% csrf_token %}
-        <button type="submit" name="like" value="{{ social.id }}", class="btn btn-primary btn-sm">like</button> -{{total_like}} Likes
+        <button type="submit" name="like" value="{{ social.id }}", class="btn btn-primary btn-sm">like</button> -{{social.total_like}} Likes
         </form>
     </div>
     </div>
