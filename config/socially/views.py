@@ -1,6 +1,7 @@
-
-from django.shortcuts import render, redirect
+from django.urls import reverse, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from django.http import HttpResponseRedirect
 
 def index(request):
     context = {}
@@ -12,10 +13,13 @@ def index(request):
         else:
             context['message'] = 'You are not logged in.'
     all_socials = Socially.objects.all()
+    def get_context_data(self, *args, **kwargs):
+        stuff=get_object_or_404(Socially, id=self.kwargs['pk'])
+        total_like = stuff.total_like()
+        context["total_like"] = total_like
+        return context
     context['all_socials']= all_socials
     return render(request, 'socially/index.html', context)
-
-
 
 def user_socials(request, this_user):
     context = {}
@@ -36,7 +40,9 @@ def delete(request, id):
     social.delete()
     return redirect('/socially/index/')
 
-def likes(request, id):
-    social = Action.objects.get(id = id)
-    print(social)
-
+def likes(request, pk):
+    print(pk)
+    post = get_object_or_404(Socially, id=pk)
+    print(post)
+    post.like.add(request.user)
+    return HttpResponseRedirect(reverse('socially:index'))
