@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(37, 37, 37);
+}
+/* index css */
+#container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(37, 37, 37);
+}
+#welcome{
+    color:white;
+}
+/* index css end */
+/* login/base css */
+#base{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(37, 37, 37);
+    padding-top: 5%;
+}
+#letters{
+    color:white;
+}
+/* end login/base css */
+
+#signup{
+    color:white;
+}

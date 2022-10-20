@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- navbar not completed -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">Socially</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -43,11 +43,11 @@
     </nav>
 <br><br>
 
-
+<div id="container">
 <article>
 
     <header>
-        <h1>
+        <h1 id="welcome">
         Welcome to Socially!
         </h1>
     </header>
@@ -57,22 +57,32 @@
         <input type="text" name="social-text">
         <button id="home" type="submit">Post Social</button>
     </form>
-
     {% for social in all_socials reversed%}
     <br>
     <div class="card" style="width: 18rem;">
-        <img src="{% static 'images/image_test.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
-        <h5 class="card-title">{{ social.author}}</h5>
-        <p class="card-text">{{ social.social_text}}</p>
-        <div class="card-footer">
-        <p class="card-text"><small class="text-muted">{{social.date_created}}</small></p>
-        <a class="btn btn-secondary" href="{% url 'socially:delete' social.id %}" role="button">Delete</a>
+            <h5 class="card-title">{{ social.author}}</h5>
+            <p class="card-text">{{ social.social_text}}</p>
+            <form action="{% url 'socially:likes' social.pk %}" method="POST"> 
+                {% csrf_token %}
+                {% if user == social.author %}
+                <a class="btn btn-secondary" href="{% url 'socially:delete' social.id %}" role="button">Delete</a>
+                {% endif %}
+                <button type="submit" value="{{ social.id}}" class="btn btn-primary position-relative">
+                    Likes
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{social.total_like}}
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
+            </form>
+            <div class="card-footer">
+                <p class="card-text"><small class="text-muted">{{social.date_created}}</small></p>
         </div>
         </div>
     </div>
     {% endfor %}
-    
+</div>
     
 
 </body>
