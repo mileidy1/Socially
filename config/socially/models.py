@@ -10,6 +10,7 @@ class Action(models.Model):
     shared_time = models.DateTimeField(null=True)
     saved = models.BooleanField(default=False)
 
+
 class Socially(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name = 'user')
     interaction = models.ManyToManyField(User, through= Action)
@@ -22,4 +23,28 @@ class Socially(models.Model):
 
     def __str__(self):
         return self.social_text
+
+class FollowersCount(models.Model):
+    follower = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user
+
+class LikePost(models.Model):
+    post_id = models.CharField(max_length=500)
+    username = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.username
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.IntegerField()
+    bio = models.TextField(blank=True)
+    location = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
 

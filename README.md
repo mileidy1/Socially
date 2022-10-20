@@ -27,13 +27,8 @@ Socially is a Social Media app that allows you to connect and interact with othe
 
 #### Additional Features:
 
-  
-
-- Save post to favorite list
 
 - Like, Comment, Share post
-
-- Upload Photos
 
 - Adding and Removing Users
 
@@ -100,9 +95,6 @@ Extra
 - Add / Remove Friends
 
 - User Search
-
-- Share To User Profile
-
   
 
 #### Week 3:
@@ -116,9 +108,3 @@ Finalizations
   
 
 - Begin styling
-
-- Add Custom PFP To Profile Page
-
-- Add Photo Upload Ability To Socials
-
-- Deploy App
