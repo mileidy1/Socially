@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Socially</title>
-<script src="{% static 'javascript/app.js' %}"></script>
+<script src="{% static 'javascript/app.js' %}" defer></script>
 </head>
 <body>
     <!-- navbar not completed -->
@@ -70,7 +70,7 @@
                 {% endif %}
                 <button type="submit" value="{{ social.id}}" class="btn btn-primary position-relative">
                     Likes
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span class="amazing position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{social.total_like}}
                         <span class="visually-hidden">unread messages</span>
                     </span>
@@ -82,6 +82,12 @@
         </div>
     </div>
     {% endfor %}
+    <div id="easter" style="display: none;">
+        <img src="{% static 'images/gotcha2.jpg' %}" alt="">
+    </div>
+    <div id="egg">
+        open
+    </div>
 </div>
     
 
