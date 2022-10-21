@@ -59,17 +59,16 @@
     </form>
     {% for social in all_socials reversed%}
     <br>
-<<<<<<< HEAD
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
+        <div class="card-body shadow-lg">
             <h5 class="card-title">{{ social.author}}</h5>
             <p class="card-text">{{ social.social_text}}</p>
             <form action="{% url 'socially:likes' social.pk %}" method="POST"> 
                 {% csrf_token %}
                 {% if user == social.author %}
-                <a class="btn btn-secondary" href="{% url 'socially:delete' social.id %}" role="button">Delete</a>
+                <a class="btn btn-secondary" href="{% url 'socially:delete' social.pk %}" role="button">Delete</a>
                 {% endif %}
-                <button type="submit" value="{{ social.id}}" class="btn btn-primary position-relative">
+                <button type="submit" value="{{ social.pk}}" class="btn btn-primary position-relative">
                     Likes
                     <span class="amazing position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         {{social.total_like}}
@@ -81,22 +80,6 @@
                 <p class="card-text"><small class="text-muted">{{social.date_created}}</small></p>
         </div>
         </div>
-=======
-    <div id="ecard">
-    <div class="card" style="width: 18rem;" >
-        <img src="{% static 'images/image_test.jpg' %}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">{{ social.author}}</h5>
-        <p class="card-text">{{ social.social_text}}</p>
-        <p class="card-text"><small class="text-muted">{{social.date_created}}</small></p>
-        <a href="{% url 'socially:delete' social.id %}">Delete</a>
-        <form action="{% url 'socially:likes' social.pk %}" method="POST">
-            {% csrf_token %}
-        <button type="submit" name="like" value="{{ social.id }}", class="btn btn-primary btn-sm">like</button> -{{social.total_like}} Likes
-        </form>
-    </div>
-    </div>
->>>>>>> b3011234648c2a535af67de66357a02790d26bcf
     </div>
     {% endfor %}
     <div id="easter" style="display: none;">
