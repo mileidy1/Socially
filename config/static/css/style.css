@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(37, 37, 37);
+    background-color: white;
 }
 /* index css */
 #container{
@@ -8,10 +8,10 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100%;
-    background-color: rgb(37, 37, 37);
+    background-color: white;
 }
 #welcome{
-    color:white;
+    color:rgb(37, 37, 37);
 }
 /* index css end */
 /* login/base css */
@@ -21,14 +21,30 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100%;
-    background-color: rgb(37, 37, 37);
+    background-color: white;
     padding-top: 5%;
+    color: rgb(37, 37, 37)
 }
 #letters{
-    color:white;
+    color: rgb(37, 37, 37);
 }
 /* end login/base css */
 
 #signup{
-    color:white;
+    color:rgb(37, 37, 37);
+}
+/* egg css */
+#egg{
+    color: white;
+}
+
+#test{
+    color:black
+}
+#footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
