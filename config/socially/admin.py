@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import Socially
+from .models import Socially, Profile,FollowersCount
 
 admin.site.register(Socially)
+admin.site.register(Profile)
+admin.site.register(FollowersCount)

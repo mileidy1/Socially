@@ -27,3 +27,6 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name='home.html'), name='home'),
     path('socially/', include("socially.urls")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns = urlpatterns+static(settings.SOCIALLY_URL,
+document_root=settings.SOCIALLY_ROOT)
